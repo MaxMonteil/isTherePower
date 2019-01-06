@@ -25,7 +25,7 @@ def main():
     searchResult = dbx.files_search(folderPath, fileName, max_results=1)
 
     if len(searchResult.matches) == 1:
-        print('Message found!\nReplying to user...')
+        print('Message found! Sending reply...')
         requests.post('https://maker.ifttt.com/trigger/there_is_power/with/key/'
                       + os.environ['WEBHOOK_KEY'],
                       data={'value1': 'Looks like there is power!'})
@@ -36,7 +36,7 @@ def main():
         print('Done!')
 
     else:
-        print('No message received.\nExiting.')
+        print('No message received. Exiting.')
 
 
 if __name__ == '__main__':
